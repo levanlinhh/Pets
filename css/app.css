@@ -106,7 +106,9 @@ section {
   padding: 1rem 3rem;
   text-transform: capitalize;
 }
-
+.option-btn {
+  margin-right: 20px;
+}
 .btn {
   text-transform: uppercase;
   background-color: #1e90ff;
@@ -130,11 +132,7 @@ section {
   padding: 1.5rem;
   font-size: 2rem;
   color: var(--red);
-  border: var(--border);
-  box-shadow: var(--box-shadow);
   text-align: center;
-  background-color: var(--white);
-  border-radius: 0.5rem;
   text-transform: capitalize;
 }
 
@@ -259,8 +257,9 @@ section {
 }
 
 .header .flex .logo {
+  font-weight: 600;
   font-size: 2.5rem;
-  color: var(--pink);
+  color: #0674e7;
 }
 
 .header .flex .navbar ul {
@@ -464,10 +463,7 @@ section {
   max-width: 60rem;
   padding: 2rem;
   text-align: center;
-  border: var(--border);
-  box-shadow: var(--border);
   border-radius: 0.5rem;
-  background-color: var(--white);
   margin: 0 auto;
 }
 
@@ -501,8 +497,7 @@ section {
   padding: 1.2rem 1.4rem;
   font-size: 1.8rem;
   color: var(--black);
-  border-radius: 0.5rem;
-  border: var(--border);
+  border-radius: 0.5rem solid #999;
   margin: 0.5rem 0;
 }
 
@@ -868,10 +863,6 @@ section {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: var(--white);
-  border: var(--border);
-  box-shadow: var(--box-shadow);
-  border-radius: 0.5rem;
   margin-top: 2rem;
 }
 

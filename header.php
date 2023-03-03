@@ -23,9 +23,9 @@ if(isset($message)){
                 <li><a href="contact.php">Liên Hệ</a>
                 </li>
                 <li><a href="shop.php">Sản Phẩm</a></li>
+                <li><a href="login.php">Đăng Nhập</a></li>
                 <li><a href="orders.php">Đặt Hàng</a></li>
-                <li><a href="login.php">Đăng Ký</a></li>
-                <li><a href="register.php">Đăng Nhập</a></li>
+                <li><a href="register.php">Đăng Ký</a></li>
             </ul>
         </nav>
 

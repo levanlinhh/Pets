@@ -23,7 +23,7 @@ if(isset($_POST['send'])){
         $message[] = 'message sent already!';
     }else{
         mysqli_query($conn, "INSERT INTO `message`(user_id, name, email, number, message) VALUES('$user_id', '$name', '$email', '$number', '$msg')") or die('query failed');
-        $message[] = 'message sent successfully!';
+        $message[] = 'Góp ý thành công! Cảm ơn bạn ';
     }
 
 }
