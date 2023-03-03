@@ -12,19 +12,19 @@ if(!isset($user_id)){
 
 if(isset($_GET['delete'])){
     $delete_id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM `cart` WHERE id = '$delete_id'") or die('query failed');
+    mysqli_query($conn, "DELETE FROM `cart` WHERE id = '$delete_id'") or die('Thất bại');
     header('location:cart.php');
 }
 
 if(isset($_GET['delete_all'])){
-    mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+    mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('Thất bại');
     header('location:cart.php');
 };
 
 if(isset($_POST['update_quantity'])){
     $cart_id = $_POST['cart_id'];
     $cart_quantity = $_POST['cart_quantity'];
-    mysqli_query($conn, "UPDATE `cart` SET quantity = '$cart_quantity' WHERE id = '$cart_id'") or die('query failed');
+    mysqli_query($conn, "UPDATE `cart` SET quantity = '$cart_quantity' WHERE id = '$cart_id'") or die('Thất bại');
     $message[] = 'Đang cập nhập số lượng!';
 }
 
@@ -37,7 +37,7 @@ if(isset($_POST['update_quantity'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shopping cart</title>
+    <title>Giỏ Hàng</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -64,20 +64,26 @@ if(isset($_POST['update_quantity'])){
     ?>
             <div class="box">
                 <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times"
-                    onclick="return confirm('delete this from cart?');"></a>
+                    onclick="return confirm('Bạn chắc chắn xóa?');"></a>
                 <a href="view_page.php?pid=<?php echo $fetch_cart['pid']; ?>" class="fas fa-eye"></a>
                 <img src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="" class="image">
                 <div class="name"><?php echo $fetch_cart['name']; ?></div>
-                <div class="price">$<?php echo $fetch_cart['price']; ?>/-</div>
+                <div class="price">Giá: <?php echo $fetch_cart['price']; ?> VNĐ</div>
+
+
 
                 <form action="" method="post">
                     <input type="hidden" value="<?php echo $fetch_cart['id']; ?>" name="cart_id">
                     <input type="number" min="1" value="<?php echo $fetch_cart['quantity']; ?>" name="cart_quantity"
                         class="qty">
-                    <input type="submit" value="update" class="option-btn" name="update_quantity">
+                    <input type="submit" value="Cập nhật" class="option-btn" name="update_quantity">
                 </form>
-                <div class="sub-total"> sub-total :
-                    <span>$<?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span>
+
+
+
+
+                <div class="sub-total"> Tổng tiền:
+                    <span><?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?> VNĐ</span>
                 </div>
             </div>
             <?php
@@ -91,20 +97,16 @@ if(isset($_POST['update_quantity'])){
 
         <div class="more-btn">
             <a href="cart.php?delete_all" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled' ?>"
-                onclick="return confirm('delete all from cart?');">Xóa tất cả</a>
+                onclick="return confirm('Xóa tất cả sản phẩm?');">Xóa tất cả</a>
         </div>
 
         <div class="cart-total">
-            <p>Tổng Tiền : <span>VNĐ<?php echo $grand_total;  ?></span></p>
+            <p>Tổng Tiền : <span><?php echo $grand_total;  ?> VNĐ</span></p>
             <a href="shop.php" class="option-btn">Tiếp tục mua hàng</a>
             <a href="checkout.php" class="btn  <?php echo ($grand_total > 1)?'':'disabled' ?>">Kiểm tra đơn hàng </a>
         </div>
 
     </section>
-
-
-
-
 
 
     <?php @include 'footer.php'; ?>

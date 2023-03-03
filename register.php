@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
    $cpass = filter_input(INPUT_POST, 'cpass', FILTER_SANITIZE_STRING);
    $cpass = mysqli_real_escape_string($conn, md5($cpass));
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('query failed');
+   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('Thất bại');
 
    if(mysqli_num_rows($select_users) > 0){
       $message[] = 'user already exist!';

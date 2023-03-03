@@ -35,7 +35,7 @@ if(isset($message)){
             <div id="user-btn" class="fas fa-user"></div>
 
             <?php
-                $select_cart_count = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                $select_cart_count = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('Thất bại');
                 $cart_num_rows = mysqli_num_rows($select_cart_count);
             ?>
             <a href="cart.php"><i class="fas fa-shopping-cart"></i><span>(<?php echo $cart_num_rows; ?>)</span></a>
